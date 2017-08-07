@@ -1,0 +1,44 @@
+<div class="container" ng-controller="LoginController as vm">
+	<div class="row">
+		<div class="col-md-4 col-xs-12 col-sm-6 col-md-offset-4 col-sm-offset-3">
+			<form name="loginForm" class="login-form" ng-submit="vm.doLogin(loginForm)" novalidate>				
+				<div class="alert alert-danger" ng-if="(vm.errorMessage != null)" role="alert">
+					<strong>Alto!</strong>
+					{{vm.errorMessage}}
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">User</label>
+					<input
+					autofocus
+					ng-focus
+					name="name"
+					ng-model="vm.user.name"							
+					ng-required="true"
+					type="text" 
+					class="form-control" 
+					id="user" 
+					placeholder="username"
+					>
+					<span class="error" ng-show="loginForm.name.$error.required && loginForm.name.$touched">
+						Este campo es requerido
+					</span>
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input
+					name="password"
+					ng-model="vm.user.password"							
+					ng-required="true"
+					type="password" 
+					class="form-control" 
+					id="password" 
+					placeholder="password">
+					<span class="error" ng-show="loginForm.password.$error.required && loginForm.password.$touched">
+						Este campo es requerido
+					</span>
+				</div>														
+				<button class="btn btn-primary btn-lg btn-block">Submit</button>					
+			</form>
+		</div>
+	</div>
+</div>	

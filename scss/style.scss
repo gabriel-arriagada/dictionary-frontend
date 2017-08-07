@@ -1,0 +1,31 @@
+.login-form{
+	padding-top: 100px;
+	
+	input[type=text],
+	input[type=password]{
+		padding: 20px !important;
+		font-size: 18px !important;	
+	}
+
+	input[type=submit]{
+		margin-top: 25px;	
+	}
+
+	label{
+		font-size: 20px !important;
+	}
+
+	span.error{
+		font-size: 15px !important;
+		color: red;
+		font-weight: bold;		
+	}
+
+	p{
+		padding: 15px !important;
+	}
+}
+
+#home{
+	padding-top: 50px;
+}

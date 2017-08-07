@@ -1,15 +1,23 @@
 (function(){
 	'use strict';
 
-	angular.module("MyOwnDictionaryClient", ["ngRoute", "base64"])	
-	.config(["$routeProvider", "$httpProvider", "$base64", function($routeProvider, $httpProvider, $base64){
+	angular.module("MyOwnDictionaryClient", ["ui.router", "base64", "ngCookies"])	
+	.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "$base64", 
+		function($stateProvider, $urlRouterProvider, $httpProvider, $base64){
 
 		var basicAuth = $base64.encode("client:secret");
 		$httpProvider.defaults.headers.common['Authorization'] = 'Basic ' + basicAuth;			
-
-		$routeProvider.when("/words", {
-			templateUrl: "js/views/words_list.html",
-			controller: "WordsController",
+				
+		$urlRouterProvider.otherwise("/login");
+		$stateProvider.state("login", {
+			url: "/login",
+			templateUrl: "js/views/login.html",
+			controller: "LoginController",
+			controllerAs: "vm"
+		}).state("home", {
+			url: "/home",
+			templateUrl: "js/views/home.html",
+			controller: "HomeController",
 			controllerAs: "vm"
 		});
 
