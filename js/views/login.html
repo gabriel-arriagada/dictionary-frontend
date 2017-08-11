@@ -1,44 +1,102 @@
-<div class="container" ng-controller="LoginController as vm">
-	<div class="row">
-		<div class="col-md-4 col-xs-12 col-sm-6 col-md-offset-4 col-sm-offset-3">
-			<form name="loginForm" class="login-form" ng-submit="vm.doLogin(loginForm)" novalidate>				
-				<div class="alert alert-danger" ng-if="(vm.errorMessage != null)" role="alert">
-					<strong>Alto!</strong>
-					{{vm.errorMessage}}
+<section class="hero is-primary is-fullheight">
+	<div class="hero-head">
+		<header class="nav">
+			<div class="container">
+				<div class="nav-left">
+					<a class="nav-item">
+						My Own Dictionary
+					</a>
 				</div>
-				<div class="form-group">
-					<label for="exampleInputEmail1">User</label>
-					<input
-					autofocus
-					ng-focus
-					name="name"
-					ng-model="vm.user.name"							
-					ng-required="true"
-					type="text" 
-					class="form-control" 
-					id="user" 
-					placeholder="username"
-					>
-					<span class="error" ng-show="loginForm.name.$error.required && loginForm.name.$touched">
-						Este campo es requerido
+				<span class="nav-toggle">
+					<span></span>
+					<span></span>
+					<span></span>
+				</span>
+				<div class="nav-right nav-menu">					
+					<a class="nav-item">
+						How it works
+					</a>					
+					<span class="nav-item">
+						<a class="button is-primary is-inverted">
+							<span class="icon">
+								<i class="fa fa-user-circle"></i>
+							</span>
+							<span>I don't have an account</span>
+						</a>
 					</span>
 				</div>
-				<div class="form-group">
-					<label for="password">Password</label>
-					<input
-					name="password"
-					ng-model="vm.user.password"							
-					ng-required="true"
-					type="password" 
-					class="form-control" 
-					id="password" 
-					placeholder="password">
-					<span class="error" ng-show="loginForm.password.$error.required && loginForm.password.$touched">
-						Este campo es requerido
-					</span>
-				</div>														
-				<button class="btn btn-primary btn-lg btn-block">Submit</button>					
-			</form>
+			</div>
+		</header>
+	</div>
+	<div class="hero-body">
+		<div class="container has-text-centered">
+			<h1 class="title">My Own Dictionary</h1>
+			<h2 class="subtitle">Learn any language by adding your own words!!</h2>
+			<div class="columns" ng-controller="LoginController as vm">
+				<div class="column is-4 is-offset-4">
+					<div class="notification is-warning" ng-if="(vm.errorMessage != null)">
+						<strong>Ups!</strong>
+						{{vm.errorMessage}}
+					</div>
+					<form name="loginForm" ng-submit="vm.doLogin(loginForm)" novalidate>
+						<div class="field">
+							<div class="control has-icons-left">
+								<input 
+								class="input is-medium" 							
+								placeholder="username"
+								autofocus
+								ng-focus
+								name="name"
+								ng-model="vm.user.name"							
+								ng-required="true"
+								type="text" 							
+								id="username" 							
+								>
+								<span class="icon is-large is-left">
+									<i class="fa fa-user"></i>
+								</span>							
+							</div>
+							<p class="help is-white" ng-show="loginForm.name.$error.required && loginForm.name.$touched">
+								This field is required
+							</p>
+						</div>
+						<div class="field">
+							<div class="control has-icons-left">
+								<input 
+								class="input is-medium" 
+								type="password" 
+								placeholder="password"
+								name="password"
+								ng-model="vm.user.password"							
+								ng-required="true"							
+								id="password" 							
+								>
+								<span class="icon is-large is-left">
+									<i class="fa fa-lock"></i>
+								</span>							
+							</div>
+							<p class="help is-white" ng-show="loginForm.password.$error.required && loginForm.password.$touched">
+								This field is required
+							</p>
+						</div>
+						<button 
+						class="button is-medium is-primary"
+						ng-class="vm.formSubmitted ? 'is-loading' : 'is-inverted'">
+							Login
+						</button>
+					</form>					
+				</div>				
+			</div>			
 		</div>
 	</div>
-</div>	
+	<div class="hero-foot">
+		<nav class="tabs">
+			<div class="container">
+				<ul>
+					<li class="is-active"><a>Create an account</a></li>
+					<li><a>Examples</a></li>					
+				</ul>
+			</div>
+		</nav>
+	</div>
+</section>
