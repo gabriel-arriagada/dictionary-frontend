@@ -7,10 +7,9 @@
 
 		vm.getWords = function(){
 			WordsService.list().then(function(data){
-				vm.words = data;
-				console.log(data);
+				vm.words = data;				
 			}).catch(function(error){
-				console.log(error);
+				
 			});
 		};
 

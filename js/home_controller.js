@@ -1,6 +1,7 @@
 (function(){
 	'use strict';
-	angular.module("MyOwnDictionaryClient").controller('HomeController', ['', function(){
+	angular.module("MyOwnDictionaryClient").controller("HomeController", [function(){
+		var vm = this;
 		
 	}]);
 })();
